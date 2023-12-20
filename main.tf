@@ -4,8 +4,7 @@
 
 locals {
   resource_group_name = "${var.naming_prefix}-rg"
-  sql_server_name = "${var.naming_prefix}-speakingrecord"
-  sql_database_name = "${var.naming_prefix}-speakingrecorddb"
+  sql_server_name = "${var.naming_prefix}-sql"
   admin_password = try(random_password.admin_password[0].result, var.admin_password)
 }
 
@@ -53,7 +52,7 @@ resource "azurerm_mssql_firewall_rule" "sql_server_firewall_rule" {
 }
 
 resource "azurerm_mssql_database" "speaking_record_db" {
-  name           = local.sql_database_name
+  name           = "SpeakingLogs"
   server_id      = azurerm_mssql_server.speaking_sql_server.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
