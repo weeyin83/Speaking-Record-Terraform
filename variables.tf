@@ -3,13 +3,13 @@
 ##
 
 variable "location" {
-    type = string
-    default = "uksouth"
+  type    = string
+  default = "uksouth"
 }
 
 variable "naming_prefix" {
   type    = string
-  default = "SpeakingLog"
+  default = "speakinglog"
 }
 
 variable "tag_usage" {
@@ -28,8 +28,8 @@ variable "allowed_ip_address" {
 }
 
 variable "admin_user" {
-    type = string
-    default = "missadministrator"
+  type    = string
+  default = "missadministrator"
 }
 
 variable "admin_password" {

@@ -4,8 +4,8 @@
 
 locals {
   resource_group_name = "${var.naming_prefix}-rg"
-  sql_server_name = "${var.naming_prefix}-sql"
-  admin_password = try(random_password.admin_password[0].result, var.admin_password)
+  sql_server_name     = "${var.naming_prefix}sql"
+  admin_password      = try(random_password.admin_password[0].result, var.admin_password)
 }
 
 resource "random_password" "admin_password" {
@@ -66,5 +66,5 @@ resource "azurerm_mssql_database" "speaking_record_db" {
 }
 
 output "token_value" {
- value = nonsensitive(local.admin_password)
+  value = nonsensitive(local.admin_password)
 }
